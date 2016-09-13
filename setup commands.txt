@@ -1,0 +1,4 @@
+for git bash
+
+for cmd(as admin)
+netsh winhttp set proxy myproxy
