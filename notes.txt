@@ -1,0 +1,143 @@
+module-2
+video-https://www.youtube.com/watch?v=tQyMqRqHwao
+   -Functional Magnetic resonance imaging(FMRI)is a non-invasive technique for studyin brain activity.
+      [invasive=>(of medical procedures) involving the introduction of instruments or other objects into the body or body cavities]
+   
+   -During FMRI experiment aseries of brain images are acquired while the subject performs a set of tasks.
+   -Set of tasks is repeated a number of times so that we can observe with greater precisions.
+   -Each Image consists of voxels(approx 10,0,000)
+   -each voxel corresponds to a spatioal location and has a number associated with it.
+   -tracking the intensity over time gives us a time series
+   -There are different times series obtains:-
+         BOLD(Blood Oxyenattion level dependent) fmri:-
+		   It is the most common approach towards fMRI.
+           It measures the ratio of oxygenated to deoxygenated hemoglobin in the blood		   
+		   It doesn't measure neuronal activity directly,instead it masures the metabolic demands(oxygen consumption) of active neurons.
+		   HRF(hemodynamic response function) represents changes in the fMRI signal triggered by neuronal activity.
+		   
+    -fmri data analysis is a massive data problem:
+                 -each brain volume=1,00,000 voxel measurements.
+                 -each experiment consists of hundreds of brain volume 				 
+                 -each experiment may be repeated for multiple subjects.
+	-fMRI Statistical Analysis:-
+           -data is massive
+		   -the signal if interest is weeak
+		   -the data exhibits a complicated temporal and spatial noise structure.
+		      Spatial resolution of an fMRI study refers to how well it discriminates between nearby locations.
+			  Temporal resolution is the smallest time period of neural activity reliably separated out by fMRI
+    
+    -DATA Analysis:-
+          	1)localizing brain activity
+			2)Connectivity:
+			    how different brsin regions are connected to each other. 
+			3)Prediction:
+			    use a person's brain activity to predict their perceptions,behavior,or health status.
+			           
+	
+module-3
+video=https://www.youtube.com/watch?v=OuRdQJMU5ro&index=3&list=PLcvMDPDk-dSmTBejANv7kY2mFo1ni_gkA
+   
+   -During a fMRI experiment a balance between spatial reolution and temporal resolution needs to be established.
+     Temporal Resolution(TR) is determined by how  quickly each individual image in acquired.
+	 Spatial Reolution(SR) determines  our ability to distinguish changes in an image across different spatial locations.
+	   
+	 Terminology:
+	 
+	Structural Image(T1):
+            -high spatial resolution
+            -low temporal resolution
+            -can distinguish different types of tissue.
+ 	Functional Imae(T2*):
+            -lower spatial resolution
+			-higher temporal resolution
+			-can relate changes insignal to an experimental manipulation
+			
+    Coronal Slice:
+           Slice along the line connecting the ears and perpendicular to thee direction of the nose.
+    Sagittal Slice:
+            Slice along the direction of the nose.
+    Axial Slice:
+           Slice along the line connecting the ears and parallel to thee direction of the nose.
+    
+    Generalling axial slices are used to form the 3D model which we analyse.
+	
+	fMRI Data:
+	    Each voxel has a corresponding time series.
+   
+module-4a
+   https://www.youtube.com/watch?v=fT63aEhnAYI&list=PLcvMDPDk-dSmTBejANv7kY2mFo1ni_gkA&index=4
+   
+   Forward Inference:
+          Given an induced psychological state -------> we observe brain activity
+   Reverse Inference:
+           can we infer psychological state <------- Given brain activity     
+    **Applying Byes Rule for reverse inference	
+module-4b
+	https://www.youtube.com/watch?v=PzzZa_E8wzo&index=5&list=PLcvMDPDk-dSmTBejANv7kY2mFo1ni_gkA
+
+	Brain Mapping in good for:
+	  -Making inferences on the presence of activity,to either test a theory or charaterize the pattern of brain response to a task.
+	  -limiting the false positive rate to a specified lelvel
+	  -Leverage hypothesis to provide evidence on a variety of theories like (is area a is involved in tast t).
+	Brain mapping in not good for:
+      -Reverse inference:
+		-does not provide direcct ingerences about psychological states.
+		-need good experimental designs,specialized analyses,meta-analyses.
+      -Establishing meaningful effects:
+        	 -terrible for estimating effect size and predictve accuracy.
+	  -testing asumptions
+	  -comparing evidence for different theories:
+	        just because a model shows some effect it does not mean it's the best model
+	  
+	
+module-5:basic MR physics
+	https://www.youtube.com/watch?v=XsDXxgjEJVY&index=6&list=PLcvMDPDk-dSmTBejANv7kY2mFo1ni_gkA
+	
+	Relaxation:
+	  longitudinal relaxation (exponential growth described by time constant T1)//as original H+ will have longitudinal spin
+	  transverse relaxation  (exponential decay described by time constant T2)
+	   time constant=time to reach 63% of net magnetization
+     longitudinal ralaxation time for  white matter,grey matter and csf (Cerebrospinal fluid)are 	 
+    TR=>how often we excite the nuclei
+    TE=>how soon after excitation we bein data collection
+	T2* the combined effect of T2 and local inhomogeneities in the magnetic filed
+	T2*=>is sensitive to flow and oxygenation ,it can be usedto uimage brain function
+
+module-6:image formation
+    https://www.youtube.com/watch?v=PxqDjhO9FUs&list=PLcvMDPDk-dSmTBejANv7kY2mFo1ni_gkA&index=7&spfreload=10
+	
+	process:
+		-After the rf(radio frequency) pulse is removed the sytem seeks to return to equilibrium
+		-During this process a signal is created that can be measured using reciver coil
+		
+	  -The measured signal combines information from the whole brain.
+      -A magnetic field gradient is used to sequentially control the spatial inhomogeneity of the magnetic field.	  
+	  
+	  -the measurements are acquired in the frequency domain(k-space).
+	  -by making measurements for multiple values of(kx,ky) we can gain enough information to solve the inverse problem(we can use inverse fourier transform) and reconstruct row(x,y)
+	  
+	  -as in practice data measurements are made discretely over a finite region(we need to use discrete fourier transforms)
+	  -the no. of k-space measurements we make influences the spatial resolution of the image.
+    
+     - Methods to acquire k space measurements:
+	    -EPI
+	    -Spirals
+	 -Measured k-space data is complex in nature
+     -Typically we work with magnitude images.
+	 
+        	 Inverse Fourier Transform
+     k-space------------------------->image space
+     
+	          Fourier Transform
+	 *image space---------------> k-space  	 
+	
+module-7 k-space:
+	https://www.youtube.com/watch?v=FI5frNsRTI4&list=PLcvMDPDk-dSmTBejANv7kY2mFo1ni_gkA&index=8&spfreload=5
+	-there is no one to one relationship between image anf k-space.
+	-all the points in k-space contain information about different voxels.
+	 Thus each individual point in image space depends on all of the points i k-space.
+	-Low spatial frequencies represent parts of the object that change in a spatially slow manner (Contrast).
+	-High spatial frequencies represent small structures whose size is on thee same order as the voxel size (Tissue boundaries).
+	
+	
+	
