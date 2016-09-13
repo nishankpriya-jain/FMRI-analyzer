@@ -1,0 +1,5 @@
+for git bash
+git config --global http.proxy http[s]://username:password@172.31.1.4:8080
+
+for cmd(as admin)
+netsh winhttp set proxy myproxy
